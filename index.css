@@ -412,3 +412,125 @@ button, .file-upload {
 .sidebar-bottom .file-upload input {
   display: none;
 }
+
+
+@media (max-width: 1024px) {
+  .sidebar {
+    width: 200px;
+  }
+
+  .container.main {
+    margin-left: 210px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 80px;
+    padding-top: 15px;
+  }
+
+  .sidebar .logo span {
+    display: none;
+  }
+
+  .sidebar nav a {
+    font-size: 14px;
+    padding: 8px;
+    text-align: center;
+  }
+
+  .sidebar nav .file-upload {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .container.main {
+    margin-left: 90px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 22%;
+    min-width: 70px;
+    height: 100vh;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 6px 2px;
+    background: rgba(20,30,50,0.95);
+    overflow-y: auto;
+    box-sizing: border-box;
+  }
+
+  .sidebar .logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .sidebar .logo img {
+    width: 38px;
+    height: 38px;
+  }
+
+  .sidebar .logo span {
+    display: none;
+  }
+
+  .sidebar nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    gap: 50px;
+  }
+
+  .sidebar nav a {
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    padding: 4px 2px;
+  }
+
+  .sidebar-search {
+    width: 95%;
+    margin-top: 10px;
+  }
+
+  .sidebar-search input {
+    width: 100%;
+    padding: 4px 6px;
+    font-size: 13px;
+    border-radius: 6px;
+  }
+
+  .sidebar-bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 95%;
+    margin-top: 50px;
+    align-items: center;
+  }
+
+  .sidebar-bottom button,
+  .sidebar-bottom .file-upload {
+    width: 100%;
+    font-size: 13px;
+    padding: 4px 6px;
+    text-align: center;
+  }
+
+  .container.main {
+    margin-left: 24%;
+    padding: 8px;
+  }
+}
