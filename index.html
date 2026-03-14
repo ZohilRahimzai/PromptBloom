@@ -10,12 +10,29 @@
 
 <body>
 
+    <div class="sidebar">
+    <div class="logo">
+      <img src="z.png" alt="PB Logo">
+      <span>PromptBloom</span>
+    </div>
+
    <nav>
       <a href="#" class="active" onclick="showMainSection('addPage')">➕ Add Prompt</a>
       <a href="#" onclick="showMainSection('savedPage')">📚 Saved Prompts</a>
       <a href="#" onclick="showMainSection('favoritesPage')">⭐ Favorites</a>
       <a href="#" onclick="showMainSection('searchPage')">🔎 Search</a>
     </nav>
+
+     <div class="sidebar-bottom">
+      <button onclick="exportPrompts()">⬇ Export</button>
+      <label class="file-upload">📂 Import
+        <input type="file" id="importFile" onchange="importPrompts()">
+      </label>
+    </div>
+
+    </div>
+
+
 
 
 
