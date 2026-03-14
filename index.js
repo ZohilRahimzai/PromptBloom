@@ -106,3 +106,71 @@ function editPrompt(index){
   deletePrompt(index, 'saved');
   showMainSection('addPage');
 }
+
+
+function toggleFavorite(index, scroll=false){
+  prompts[index].favorite = !prompts[index].favorite;
+  localStorage.setItem("prompts", JSON.stringify(prompts));
+
+  displaySavedPrompts();
+  displayFavorites();
+  searchPromptsPage();
+
+  if(scroll){
+    requestAnimationFrame(() => {
+      document.getElementById("favoritesPage").scrollIntoView({behavior: 'smooth', block: 'start'});
+    });
+  }
+}
+
+function searchPromptsPage(){
+  let query = document.getElementById("searchInput").value.toLowerCase();
+  let container = document.getElementById("searchResults");
+  container.innerHTML = "";
+
+  prompts.forEach((p,index)=>{
+    if(!p.title.toLowerCase().includes(query) && !p.text.toLowerCase().includes(query)) return;
+
+    let card = document.createElement("div");
+    card.className = "card";
+    let star = p.favorite ? "★" : "☆";
+
+    card.innerHTML = `
+      <h4>${p.title} <span class="favorite-star" onclick="toggleFavorite(${index}, true)">${star}</span></h4>
+      <b>${p.category}</b>
+      <p>${p.text}</p>
+      <button class="copy" onclick="copyPrompt(${index})">⭐ Copy</button>
+    `;
+    container.appendChild(card);
+  });
+
+  requestAnimationFrame(() => {
+    document.getElementById("searchPage").scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+}
+
+function exportPrompts(){
+  let data = JSON.stringify(prompts);
+  let blob = new Blob([data], {type:"application/json"});
+  let url = URL.createObjectURL(blob);
+  let a = document.createElement("a");
+  a.href = url;
+  a.download = "prompts.json";
+  a.click();
+}
+
+function importPrompts(){
+  let file = document.getElementById("importFile").files[0];
+  let reader = new FileReader();
+
+  reader.onload = function(e){
+    let imported = JSON.parse(e.target.result);
+    prompts = prompts.concat(imported);
+    localStorage.setItem("prompts", JSON.stringify(prompts));
+    displaySavedPrompts();
+    displayFavorites();
+    searchPromptsPage();
+  };
+
+  reader.readAsText(file);
+}
