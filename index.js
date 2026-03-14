@@ -36,3 +36,47 @@ function addPrompt(){
 
   showMainSection('savedPage');
 }
+
+function displaySavedPrompts(){
+  let container = document.getElementById("promptListSaved");
+  container.innerHTML = "";
+  document.getElementById("countSaved").innerText = "Total Prompts: " + prompts.length;
+
+  prompts.forEach((p,index)=>{
+    let card = document.createElement("div");
+    card.className = "card";
+    let star = p.favorite ? "★" : "☆";
+    card.innerHTML = `
+      <h4>${p.title} <span class="favorite-star" onclick="toggleFavorite(${index}, true)">${star}</span></h4>
+      <b>${p.category}</b>
+      <p>${p.text}</p>
+      <button class="copy" onclick="copyPrompt(${index})">⭐ Copy</button>
+      <button class="edit" onclick="editPrompt(${index})">✏️ Edit</button>
+      <button class="delete" onclick="deletePrompt(${index}, 'saved')">🗑 Delete</button>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function displayFavorites(){
+  let container = document.getElementById("promptListFavorites");
+  container.innerHTML = "";
+
+  prompts.forEach((p,index)=>{
+    if(!p.favorite) return;
+
+    let card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <h4>${p.title} <span class="favorite-star" onclick="toggleFavorite(${index}, true)">★</span></h4>
+      <b>${p.category}</b>
+      <p>${p.text}</p>
+      <button class="copy" onclick="copyPrompt(${index})">⭐ Copy</button>
+    `;
+    container.appendChild(card);
+  });
+
+  requestAnimationFrame(() => {
+    document.getElementById("favoritesPage").scrollIntoView({behavior: 'smooth', block: 'start'});
+  });
+}
