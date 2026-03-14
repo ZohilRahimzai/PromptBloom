@@ -158,3 +158,257 @@ button{
   transform: scale(1.3);
   text-shadow: 0 0 10px #facc15, 0 0 20px #fbbf24, 0 0 30px #fcd34d;
 }
+
+
+body {
+  display: flex;
+  margin: 0;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;
+  background: rgba(20, 30, 50, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #f59e0b;
+}
+
+.sidebar .logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 10px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(59,130,246,0.2);
+  color: #3b82f6;
+}
+
+.sidebar nav a.active {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.sidebar nav .file-upload {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 10px 12px;
+  background: rgba(59,130,246,0.3);
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  gap: 5px;
+}
+
+.sidebar nav .file-upload input {
+  display: none;
+}
+
+.container.main {
+  margin-left: 380px;
+  padding: 20px;
+}
+
+.container.main {
+  margin-left: 0;
+  padding: 10px;
+}
+
+input, select, textarea {
+  font-size: 14px;
+  padding: 10px 12px;
+}
+
+button, .file-upload {
+  font-size: 13px;
+  padding: 6px 10px;
+}
+
+#promptList, #promptListSaved, #promptListFavorites, #searchResults {
+  grid-template-columns: 1fr;
+  gap: 6px;
+}
+
+.card {
+  padding: 10px;
+}
+
+.card h4 {
+  font-size: 16px;
+}
+
+.card p {
+  font-size: 14px;
+}
+
+.card button {
+  font-size: 12px;
+  padding: 5px 8px;
+  margin-bottom: 5px;
+}
+
+.favorite-star {
+  font-size: 18px;
+}
+
+.tag {
+  font-size: 10px;
+  padding: 2px 5px;
+}
+
+.sidebar-bottom button,
+.sidebar-bottom .file-upload {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar-bottom button:hover,
+.sidebar-bottom .file-upload:hover {
+  background: rgba(59,130,246,0.4);
+  transform: scale(1.03);
+}
+
+.sidebar-bottom .file-upload input {
+  display: none;
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 260px;
+  height: 100vh;
+  background: rgba(20, 30, 50, 0.95);
+  backdrop-filter: blur(10px);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  padding-top: 20px;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.3);
+  z-index: 1000;
+}
+
+.container.main {
+  margin-left: 280px;
+  padding: 20px;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 15px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 20px;
+  color: #f59e0b;
+}
+
+.sidebar .logo img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 10px;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: white;
+  font-size: 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(59,130,246,0.2);
+  color: #3b82f6;
+}
+
+.sidebar nav a.active {
+  background: rgba(34,197,94,0.2);
+  color: #22c55e;
+  font-weight: bold;
+}
+
+.sidebar-bottom button,
+.sidebar-bottom .file-upload {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border-radius: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  box-sizing: border-box;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.sidebar-bottom button:hover,
+.sidebar-bottom .file-upload:hover {
+  background: rgba(59,130,246,0.4);
+  transform: scale(1.03);
+}
+
+.sidebar-bottom .file-upload input {
+  display: none;
+}
