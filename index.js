@@ -80,3 +80,29 @@ function displayFavorites(){
     document.getElementById("favoritesPage").scrollIntoView({behavior: 'smooth', block: 'start'});
   });
 }
+
+
+function copyPrompt(index){
+  navigator.clipboard.writeText(prompts[index].text);
+  alert("Prompt copied!");
+}
+
+function deletePrompt(index, type='all'){
+  prompts.splice(index,1);
+  localStorage.setItem("prompts", JSON.stringify(prompts));
+
+  if(type === 'saved') displaySavedPrompts();
+  else displayFavorites();
+
+  searchPromptsPage();
+}
+
+function editPrompt(index){
+  let p = prompts[index];
+  document.getElementById("title").value = p.title;
+  document.getElementById("category").value = p.category;
+  document.getElementById("prompt").value = p.text;
+
+  deletePrompt(index, 'saved');
+  showMainSection('addPage');
+}
